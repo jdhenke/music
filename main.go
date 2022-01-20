@@ -14,8 +14,11 @@ const index = `<html>
 func main() {
 	log.SetFlags(log.Lshortfile)
 	log.Println("Starting up...")
-	if err := http.ListenAndServe(":"+os.Getenv("PORT"), http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
-		_, _ = fmt.Fprintln(rw, index)
+	addr := ":" + os.Getenv("PORT")
+	log.Printf("Listening on %s", addr)
+	if err := http.ListenAndServe(addr, http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+		n, err := fmt.Fprintln(rw, index)
+		log.Println(r.URL, n, err)
 	})); err != nil {
 		log.Fatal(err)
 	}
