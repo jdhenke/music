@@ -1,4 +1,4 @@
-# 🎹 Joe's Music Project 🎹
+# 🎹 Joe's Music Project
 
 This is my [pet project](https://github.com/jdhenke/music/discussions/2) to demonstrate an understanding of the basics of music theory **in code** as presented in each of the [12tone Building Blocks](https://www.youtube.com/watch?v=xTOOWe_yLwY&list=PLMvVESrbjBWplAcg3pG0TesncGT7qvO06) videos.
 
