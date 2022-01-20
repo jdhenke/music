@@ -17,8 +17,9 @@ func main() {
 	addr := ":" + os.Getenv("PORT")
 	log.Printf("Listening on %s", addr)
 	if err := http.ListenAndServe(addr, http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
-		n, err := fmt.Fprintln(rw, index)
-		log.Println(r.URL, n, err)
+		if _, err := fmt.Fprintln(rw, index); err != nil {
+			log.Printf("Write error: %v", err)
+		}
 	})); err != nil {
 		log.Fatal(err)
 	}
