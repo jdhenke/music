@@ -19,5 +19,5 @@ func main() {
 	})); err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Shutdown complete.")
+	log.Println("Shutdown complete.")
 }
