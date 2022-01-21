@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -16,11 +15,7 @@ func main() {
 	log.Println("Starting up...")
 	addr := ":" + os.Getenv("PORT")
 	log.Printf("Listening on %s", addr)
-	if err := http.ListenAndServe(addr, http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
-		if _, err := fmt.Fprintln(rw, index); err != nil {
-			log.Printf("Write error: %v", err)
-		}
-	})); err != nil {
+	if err := http.ListenAndServe(addr, http.FileServer(http.Dir("web"))); err != nil {
 		log.Fatal(err)
 	}
 	log.Println("Shutdown complete.")
