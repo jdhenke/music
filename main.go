@@ -6,10 +6,6 @@ import (
 	"os"
 )
 
-const index = `<html>
-<h1>Joe's Music Project</h1>
-</html>`
-
 func main() {
 	log.SetFlags(log.Lshortfile)
 	log.Println("Starting up...")
