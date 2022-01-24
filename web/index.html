@@ -1,37 +1,6 @@
 <html>
 <head>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎹</text></svg>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: lightslategray;
-            margin: 0px auto;
-            max-width: 1000px;
-        }
-        h1,h2,h3,h4,h5,h6 {
-            font-family: 'Roboto', sans-serif;
-            color: darkslategray;
-        }
-        body {
-            font-family: 'Roboto Slab', sans-serif;;
-            font-size: 16px;
-            color: darkslategray;
-        }
-        #app {
-            padding: 1px 1em 1px 1em;
-            background-color: lightgray;
-            border-radius: 2px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-        a, a:visited, a:hover, a:active {
-            color: slateblue;
-            text-decoration: none;
-            text-shadow: 0 0 1px;
-        }
-    </style>
+{{ template "styles.html" }}
 </head>
 <body>
 <div id="app">
@@ -50,7 +19,7 @@
     <h2>Outline</h2>
     <p>Here's an outline of the site (those without links are not done yet):</p>
     <ol>
-        <li>Notes</li>
+        <li><a href="/notes">What's a Note?</a></li>
         <li>Writing Music Down</li>
         <li>How Notes Relate</li>
         <li>What's a Scale?</li>
