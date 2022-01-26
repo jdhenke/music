@@ -5,107 +5,234 @@
 </head>
 <body>
 <div id="app">
-<h1>The Science of Sound</h1>
-    <h2>How Sound Works</h2>
+    <h1>The Science of Sound</h1>
+    <h2>Preface</h2>
     <p>
-        <b>Sounds</b> are actually pressure waves that your ears can detect.
-    </p>
-    <p>
-        <b>Pressure</b> can be thought of as how hard the air is pushing against your eardrum.
-    </p>
-    <p>
-        <b>Pressure Waves</b> can be thought of as ripples of slightly higher and lower pressure that move through the
-        air.
-    </p>
-    <p>
-        Your ears detect these <b>changes</b> in pressure, and more specifically, they are detecting:
-    </p>
-    <ul>
-        <li><i>How often</i> the pressure is getting slightly higher or lower</li>
-        <li><i>How much</i> higher or lower the pressure is changing</li>
-    </ul>
-
-    <p>
-        <i>How often</i> the pressure is changing is its <b>frequency</b>, usually measured in Hertz (Hz), which means
-        "how many times in one second" the pressure is changing. Humans can hear sounds from 20Hz to 20,000Hz.
+	This page explains how the physical mechanics of sound work, how to
+	mathematically describe important attributes of sound, and how our ears
+	actually perceive those attributes. Understanding the connection
+	between the mathematical concepts and the corresponding aspects of
+	sound will be helpful because the mathematical concepts will be used to
+	explain and manipulate music throughout this site. This page mentions
+	but is not exclusive to musical notes, but instead describes sound in
+	general, leaving the specifics of musical notes, including a more
+	precise mathematical definition of waves, for the next page. After
+	reading this page, you should have an understanding of what makes
+	sounds soft or loud as well as low or high pitched.
     </p>
 
+    <h2><b>Pressure</b> Is The Force Against A Surface</h2>
     <p>
-        In more familiar terms, the frequency of a sound is what makes it sound like a low or high note, or
-        its <b>pitch</b>.
+	One example is pushing against a wall, your hand is applying a force
+	against the parts of the wall it is touching, so that part of the wall
+	is under pressure.
     </p>
-    <ul>
-        <li><i>Fast</i> frequencies, pressure changes that happen <i>more</i> often per second, sound high and squeaky.</li>
-        <li><i>Slow</i> frequencies, pressure changes that happen <i>less</i> often per second, sound low and deep.</li>
-    </ul>
-
     <p>
-        <i>How much</i> the pressure is changing is its <b>amplitude</b>, usually measured in decibels (dB), which
-        indicates, relative to the normal pressure, how much the pressure is changing in each ripple. Humans can
-        generally hear from 0dB to 150dB, with hearing damage possible starting at 80dB-85dB
-        <a href="https://www.cdc.gov/nceh/hearing_loss/what_noises_cause_hearing_loss.html">[1]</a>.
+	Another example that is closer to how hearing works is the pressure in
+	a tire. The air inside the tire is pressing against the inner surface
+	of the rubber of the tire, creating pressure.
+    </p>
+    <p>
+	In the same way, air in the atmosphere is actually applying pressure to
+	your eardrum.
     </p>
 
     <p>
-        In more familiar terms, the amplitude of a sound is what makes it sound quiet or loud, or its
-        <b>volume</b>.
+	However, there is also air on the other side of the ear drum that is
+	applying equal pressure, so your eardrum is not constantly bulging one
+	way or the other.
     </p>
-    <ul>
-        <li><i>Large</i> amplitudes, <i>bigger</i> pressure changes, sound loud.</li>
-        <li><i>Low</i> amplitudes, <i>smaller</i> pressure changes, sound quiet.</li>
-    </ul>
+    <p>
+	However, if the pressure from the outside of your ears increases, such
+	as when scuba diving, or decreases, such as flying in an airplane, your
+	ears may equalize and you may feel a “pop”, which is letting air in or
+	out from behind your eardrum to equalize the pressure so that the
+	sensation of pressing against your eardrums goes away.
+    </p>
+    <h2>
+	<b>Pressure Waves</b> Create Moving Fluctuations In Pressure
+    </h2>
+    <p>
+	<a href="https://en.wikipedia.org/wiki/Longitudinal_wave">Pressure Waves</a> are fluctuations in pressure that move through a medium.
+    </p>
+    <p>
+	For example, holding a slinky with both hands and shaking one side will
+	produce a movement through the slinky where the coils get closer and
+	farther apart.
+    </p>
+    <p>
+	In the same way, pressure waves can move through a gas or liquid, where
+	the molecules get closer and farther apart.
+    </p>
+    <p style="text-align: center;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Spherical_pressure_waves.gif">
+    </p>
+    <p>
+	Pressure waves move at a constant speed which depends on what the wave
+	is moving through.
+    </p>
+    <p>
+	<a href="https://en.wikipedia.org/wiki/Speed_of_sound">The speed of
+	pressure waves moving through the air</a> is around 767mph, whereas
+	<a href="https://www.britannica.com/science/seismic-wave">seismic
+	waves</a> through the earth can travel at more than ten times that
+	speed.
+    </p>
 
+    <h2><b>Periodic Waves</b> Repeat At Some <b>Frequency</b> and Have an <b>Amplitude</b></h2>
+    <p>
+	<a href="https://en.wikipedia.org/wiki/Periodic_function">Periodic
+	waves</a> are waves that repeat the same pattern over and over again.
+    </p>
+    <p>
+	How long it takes to repeat themselves is their period, or inversely,
+	how often they repeat themselves in a given amount of time is their
+	frequency.
+    </p>
+    <p>
+	For a periodic pressure wave, the maximum amount the pressure changes
+	during each period is its amplitude.
+    </p>
+    <p style="text-align: center;">
+        <img style="max-width: 100%; max-height: 500px;"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Simple_harmonic_motion.svg/2560px-Simple_harmonic_motion.svg.png">
+        <br>
+        <i>
+	    If <code>x(t)</code> describes the pressure over time as a periodic
+	    pressure wave comes through, then <b><code>A</code></b> describes
+	    the <b>amplitude</b> and <code>T</code> describes the period,
+	    making <b><code>1/T</code></b> the <b>frequency</b>.
+        </i>
+    </p>
+
+    <h2><b>Sounds</b> Are Periodic Pressure Waves In The Air</h2>
+    <p>
+	Finally, sound itself can be described using the terminology that’s
+	been developed so far, specifically, as <a
+	href="https://en.wikipedia.org/wiki/Sound#Physics">periodic pressure
+	waves that travel through the air</a>.
+    </p>
+    <p>
+	This means that the source of the sound must be something that is
+	repeatedly moving with some frequency, and displacing the air with some
+	amplitude.
+    </p>
+    <p>
+	This could be the vibrating strings on a piano when it’s being played
+	or your vibrating vocal chords when you are talking.
+    </p>
+    <h2>Your Ears Perceive Amplitude as <b>Loudness</b></h2>
+    <p>
+	The amplitude of the sound wave is perceived by your ears as its
+	loudness.
+    </p>
+    <p>
+	Sources that displace the air a larger amount create a louder sound.
+    </p>
+    <p>
+	For example, if you gently pluck a guitar string so it only moves a
+	small physical distance, the sound is quieter. Conversely, if you pluck
+	it hard, the string moves a larger physical distance and the sound is
+	louder.
+    </p>
+    <p>
+	Most humans can hear sounds between 0 and 120-130 decibels (dB) and has
+	to do with the ratio of the amplitude (how much the pressure changes
+	during the wave) relative to the baseline pressure. <a
+	href="http://www.cochlea.org/en/hear/human-auditory-range#:~:text=The%20human%20ear%20as%20a,irreversible%20damage%20above%20120%20dB.">Hearing
+	damage can start around 90dB</a>.
+    </p>
+    <h2>Your Ears Perceive Frequency As <b>Pitch</b></h2>
+    <p>
+	The frequency of the sound wave is perceived by your ears as its pitch.
+	Sources that create a higher frequency sound high pitched, and sources
+	with a lower frequency sound low pitched.
+    </p>
+    <p>
+	For example, rumbling thunder has a low frequency while birds chirping
+	have a high frequency.
+    </p>
+    <p>
+	Most humans can hear frequencies between <a
+	href="https://www.ncbi.nlm.nih.gov/books/NBK10924/#:~:text=Humans%20can%20detect%20sounds%20in,to%2015%E2%80%9317%20kHz.)">20Hz
+	and 20,000Hz</a>. Hz means per second, so a periodic wave with a
+	frequency of 1000Hz means the wave repeats itself 1000 times per
+	second, or once every millisecond.
+    </p>
     <h2>Brain Teasers</h2>
-
     <p>
     <details>
-        <summary>If you were in a room with the pressure twice as high as it is at sea level, what would it sound like?</summary>
+        <summary>
+	    If you were in a room with constant pressure twice that of sea
+	    level, could you “hear” the higher pressure?
+	</summary>
 
         <p>
-            <b>Nothing!</b> If the room is at a constant pressure then there's no <i>change</i> in pressure
-            for your ear to detect, regardless of what that pressure is, so there is no sound.
+	    <b>No!</b> If the pressure is not repeatedly changing, there’s no
+	    frequency. If you haven’t equalized your ear, you might feel a
+	    physical pressure in your ear, but the increased pressure is not
+	    itself a sound.
+         </p>
+    </details>
+    </p>
+    <p>
+    <details>
+	<summary>
+	    Why do car sirens sound higher pitched coming towards you and lower
+	    pitched going away from you?
+	</summary>
+
+        <p>
+	    <a href="https://en.wikipedia.org/wiki/Doppler_effect">The Doppler
+	    Effect</a> describes this phenomenon occurring because, as the
+	    siren moves toward you, each successive wave starts a little bit
+	    closer to you, making the waves closer together, so when they get
+	    to you the wave is repeating with a higher frequency than if it was
+	    standing still.
+         </p>
+
+        <p style="text-align: center;">
+            <img style="max-width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif">
+	</p>
+
+        <p>
+            Note: This does NOT happen because the waves themselves are traveling
+            faster though. The speed of sound in a given medium is constant.
         </p>
     </details>
     </p>
 
     <p>
     <details>
-        <summary>If you were on top of Mount Everest in a sound-proof tent, strumming the guitar, would it sound different than at sea level?</summary>
+    	<summary>
+	If a plane going faster than the speed of sound is coming towards you,
+	what does it sound like?
+	</summary>
 
         <p>
-            <b>Yes!</b> TBD why!
+	    <b>Nothing!</b> If it emitted a sound a mile away, the plane would
+	    reach you before the sound it created there did, so while the plane
+	    is still in front of you, it would be completely silent, always
+	    ahead of the sound it produces.
         </p>
     </details>
     </p>
 
+    <h2>Summary</h2>
     <p>
-    <details>
-        <summary>Why do car sirens sound higher pitched coming towards you and lower pitched going away from you?</summary>
-
-        <p>This is because the siren is coming toward you and the sound waves it produces are closer together in that direction.</p>
-    </details>
-    </p>
-
-    <p>
-    <details>
-        <summary>If a plane going faster than the speed of sound is coming towards you what does it sound like?</summary>
-
-        <p><b>Nothing!</b> Until it reaches you, that is.</p>
-    </details>
-    </p>
-
-    <p>
-    <details>
-        <summary>What can you say about the sound of a dog whistle and the hearing of a dog if you can't hear the whistle but the dog can?</summary>
-
-        The frequency of the whistle, and therefore the dog's ability to hear, are both <b>higher than 20,000Hz</b>.
-    </details>
+	On this page, it was shown how sounds are really periodic pressure
+	waves propagating through the air, which our eardrums interpret using
+	two attributes of these waves. First, the amplitude of the wave, how
+	much the wave temporarily changes the pressure, corresponds to how loud
+	a sound is. Second, the frequency of the wave, how quickly the wave
+	repeats itself, corresponds to a sound’s pitch.
     </p>
 
     <hr>
-    <p style="text-align: center;">
-        <a href="/">Home</a> | <a href="/notes/2">Next - Notes As Sounds</a>
-    <p>
+
+    <p style="text-align:center;">
+        <b>Next (WIP)</b>
+    </p>
 </div>
 </body>
 </html>
