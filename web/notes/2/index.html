@@ -2,6 +2,7 @@
 <head>
     <title>Notes As Sounds</title>
     {{ template "styles.html" }}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 </head>
 <body>
 <div id="app">
@@ -44,8 +45,46 @@
 
 
     <p>
-	TODO: DRAW SQUARE WAVE
+        <canvas id="square-wave" width="400" height="400"></canvas>
     </p>
+
+    <script>
+        (function() {
+            const ctx = document.getElementById('square-wave').getContext('2d');
+            const data = [];
+            for (let i = 0; i < 3; i++) {
+                data.push({x: 2*i, y:1}, {x: 2*i+1, y:1}, {x: 2*i+1, y:-1}, {x:2*i+2, y:-1})
+            }
+            new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Pressure from Square Wave',
+                        data: data,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    showLine: true,
+                    showPoints: false,
+                    scales: {
+                        y: {
+                            min: -2,
+                            max: 2,
+                        }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                }
+            });
+        })();
+
+    </script>
 
 
     <p>
@@ -59,7 +98,7 @@
 
 
     <p>
-	As you can tell, this doesn’t sound like any instrument, or even that
+	As you can tell, this doesn't sound like any instrument, or even that
 	pleasant.
     </p>
 
@@ -72,8 +111,49 @@
 
 
     <p>
-	TODO: DRAW SINE WAVE
+        <canvas id="sine-wave" width="400" height="400"></canvas>
     </p>
+
+    <script>
+        (function() {
+            const ctx = document.getElementById('sine-wave').getContext('2d');
+            const data = [];
+            for (let i = 0; i < 3; i++) {
+                let pointsPerPeriod = 100;
+                for (let j = 0; j < pointsPerPeriod; j++) {
+                    data.push({x:i + 1.0 * j / pointsPerPeriod, y: Math.sin(2 * Math.PI * j / pointsPerPeriod)})
+                }
+
+            }
+            const myChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Pressure from Sine Wave',
+                        data: data,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    showLine: true,
+                    showPoints: false,
+                    scales: {
+                        y: {
+                            min: -2,
+                            max: 2,
+                        }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                }
+            });
+        })()
+    </script>
 
 
     <p>
@@ -95,10 +175,61 @@
 	Now, you can even see how it sounds when adjusting the frequency here:
     </p>
 
+    <p>
+        <input  style="width: 100%;" type="range" min="1" max="10" value="5" class="slider" id="frequency-slider">
+    </p>
 
     <p>
-	TODO: VISUALIZE AND PLAY SINE WAVE AT DIFFERENT FREQUENCIES
+        <canvas id="variable-sine-wave" width="400" height="400"></canvas>
     </p>
+
+    <script>
+        (function() {
+            const ctx = document.getElementById('variable-sine-wave').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Pressure from Sine Wave',
+                        data: [],
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    showLine: true,
+                    showPoints: false,
+                    scales: {
+                        y: {
+                            min: -2,
+                            max: 2,
+                        }
+                    },
+                    elements: {
+                        point:{
+                            radius: 0
+                        }
+                    },
+                }
+            });
+            const update = function() {
+                const f = document.querySelector("#frequency-slider").value;
+                let numPoints = 300;
+                let fewestPeriods = 3;
+                const data = [];
+                for (let i = 0; i < numPoints; i++) {
+                    data.push({x:i * fewestPeriods / numPoints, y: Math.sin(2 * Math.PI * i * f * fewestPeriods / numPoints)})
+                }
+                myChart.data.datasets[0].data = data;
+                myChart.update();
+            }
+            update();
+            document.querySelector("#frequency-slider").addEventListener("change", function () {
+                update();
+            });
+        })()
+    </script>
 
 
     <p>
