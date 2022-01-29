@@ -62,7 +62,7 @@
                         label: 'Pressure from Square Wave',
                         data: data,
                         fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
+                        borderColor: 'slateblue',
                     }]
                 },
                 options: {
@@ -132,7 +132,7 @@
                         label: 'Pressure from Sine Wave',
                         data: data,
                         fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
+                        borderColor: 'slateblue',
                     }]
                 },
                 options: {
@@ -193,7 +193,7 @@
                         label: 'Pressure from Sine Wave',
                         data: [],
                         fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
+                        borderColor: 'slateblue',
                     }]
                 },
                 options: {
@@ -216,7 +216,7 @@
             const update = function() {
                 const f = document.querySelector("#frequency-slider").value;
                 let numPoints = 300;
-                let fewestPeriods = 3;
+                let fewestPeriods = 1;
                 const data = [];
                 for (let i = 0; i < numPoints; i++) {
                     data.push({x:i * fewestPeriods / numPoints, y: Math.sin(2 * Math.PI * i * f * fewestPeriods / numPoints)})
