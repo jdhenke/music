@@ -50,6 +50,7 @@ func handleNote(rw http.ResponseWriter, r *http.Request) {
 var sources = map[string]func(format beep.Format, freq, amp float64, dur time.Duration) beep.Streamer{
 	"square": note.Square,
 	"sine":   note.Sine,
+	"piano":  note.Piano,
 }
 
 func parseNoteRequest(q url.Values) (noteRequest, error) {
