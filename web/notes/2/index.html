@@ -251,7 +251,7 @@
                 }
                 myChart.data.datasets[0].data = data;
                 myChart.update();
-                document.querySelector("#variable-sine-wave-source").src = `/api/note?source=sine&freq=${f * 440 / 5}&dur=3s`
+                document.querySelector("#variable-sine-wave-source").src = `/api/note?source=sine&freq=${f * 440 / 3}&dur=3s`
                 document.querySelector("#variable-sine-wave-audio").load();
                 if (play) {
                     document.querySelector("#variable-sine-wave-audio").play();
