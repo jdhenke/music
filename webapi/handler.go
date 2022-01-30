@@ -33,13 +33,15 @@ func handleNote(rw http.ResponseWriter, r *http.Request) {
 		Precision:   2,
 	}
 	source := sources[noteReq.source]
-	streamer := source(format, noteReq.freq, 0.1, noteReq.dur)
+	streamer := source(format, noteReq.freq, 0.05, noteReq.dur)
 	if err := wav.Encode(ws, streamer, format); err != nil {
 		log.Println(err)
 		http.Error(rw, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		return
 	}
-	if _, err := io.Copy(rw, ws.Reader()); err != nil {
+	reader := ws.BytesReader()
+	rw.Header().Add("Content-Length", fmt.Sprint(reader.Len()))
+	if _, err := io.Copy(rw, reader); err != nil {
 		log.Println(err)
 		http.Error(rw, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 	}
