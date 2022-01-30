@@ -9,11 +9,13 @@
     <h1>Notes As Sounds</h1>
     <h2>Preface</h2>
     <p>
-        Building off of the last page's explanation of how a sound wave's frequency corresponds to its pitch, this page
-        actually visualizes and plays the sounds of different sound waves. In doing so, it shows that the shape of the
-        wave also matters. Lastly, by showing how the sound of a real piano is actually not that well understood with
-        this type of visualization, it motivates the need for a better type of visualization, which is explained in
-        the next page.
+	Building off of the last page's explanation of how a sound wave's
+	frequency corresponds to its pitch, this page actually visualizes and
+	plays the sounds of different sound waves. In doing so, it shows that
+	the shape of the wave also matters. Lastly, by showing how the sound of
+	a real piano is actually not that well understood with this type of
+	visualization, it motivates the need for a better type of
+	visualization, which is explained in the next page.
     </p>
     <h2>Notes Have A Specific Frequency</h2>
     <p>
@@ -50,8 +52,13 @@
         (function() {
             const ctx = document.getElementById('square-wave').getContext('2d');
             const data = [];
+            const maxX = 6;
+            const totalTime = 3 / 440;
+            const toX = function(i) {
+                return 1000 * (i / maxX) * totalTime
+            }
             for (let i = 0; i < 3; i++) {
-                data.push({x: 2*i, y:1}, {x: 2*i+1, y:1}, {x: 2*i+1, y:-1}, {x:2*i+2, y:-1})
+                data.push({x: toX(2*i), y:1}, {x: toX(2*i+1), y:1}, {x: toX(2*i+1), y:-1}, {x:toX(2*i+2), y:-1})
             }
             new Chart(ctx, {
                 type: 'scatter',
@@ -74,7 +81,7 @@
                         },
                         x: {
                             ticks: {
-                                callback: () => { return ""; },
+                                callback: (item) => `${item}ms`
                             }
                         }
                     },
@@ -123,12 +130,12 @@
         (function() {
             const ctx = document.getElementById('sine-wave').getContext('2d');
             const data = [];
-            for (let i = 0; i < 3; i++) {
-                let pointsPerPeriod = 100;
-                for (let j = 0; j < pointsPerPeriod; j++) {
-                    data.push({x:i + 1.0 * j / pointsPerPeriod, y: Math.sin(2 * Math.PI * j / pointsPerPeriod)})
-                }
-
+            const totalTime = 3 / 440;
+            const toX = function(i) {
+                return 1000 * (i / 300) * totalTime
+            }
+            for (let i = 0; i < 300; i++) {
+                data.push({x:toX(i), y: Math.sin(2 * Math.PI * i / 100)})
             }
             const myChart = new Chart(ctx, {
                 type: 'scatter',
@@ -151,7 +158,7 @@
                         },
                         x: {
                             ticks: {
-                                callback: () => { return ""; },
+                                callback: (item) => `${item}ms`
                             }
                         }
                     },
@@ -233,7 +240,7 @@
                         },
                         x: {
                             ticks: {
-                                callback: () => { return ""; },
+                                callback: (item) => `${item}ms`
                             }
                         }
                     },
@@ -249,8 +256,12 @@
                 let numPoints = 300;
                 let fewestPeriods = 1;
                 const data = [];
+                const totalTime = 3 / 440;
+                const toX = function(i) {
+                    return 1000 * (i / numPoints) * totalTime
+                }
                 for (let i = 0; i < numPoints; i++) {
-                    data.push({x:i * fewestPeriods / numPoints, y: Math.sin(2 * Math.PI * i * f * fewestPeriods / numPoints)})
+                    data.push({x:toX(i), y: Math.sin(2 * Math.PI * i * f * fewestPeriods / numPoints)})
                 }
                 myChart.data.datasets[0].data = data;
                 myChart.update();
@@ -790,7 +801,7 @@
             ];
             const data = [];
             for (let i = 0; i < rawData.length; i++) {
-                data.push({x: i * 3.0 / rawData.length, y: rawData[i] / 0.15})
+                data.push({x: (3 * 1000 / 440) * (i / rawData.length), y: rawData[i] / 0.15})
             }
             const myChart = new Chart(ctx, {
                 type: 'scatter',
@@ -800,6 +811,7 @@
                         data: data,
                         fill: false,
                         borderColor: 'slateblue',
+                        tension: 0.1,
                     }]
                 },
                 options: {
@@ -813,7 +825,7 @@
                         },
                         x: {
                             ticks: {
-                                callback: () => { return ""; },
+                                callback: (item) => `${item}ms`
                             }
                         }
                     },
@@ -827,14 +839,6 @@
         })()
     </script>
 
-
-    <p>
-	This is clearly much more complicated, yet you can listen to how this
-	sounds here though to see that it does in fact sound pleasant and like
-	a real piano:
-    </p>
-
-
     <p style="text-align: center;">
         <audio preload="auto"controls>
             <source src="/api/note?source=piano&freq=440&dur=3s">
@@ -842,21 +846,17 @@
         </audio>
     </p>
 
-
     <p>
-	So what’s going on? 
+        This sounds pleasantly like a real piano, however the pressure wave is
+        paradoxically more complicated, and is not something one can easily
+        look at to understand what's happening.
     </p>
 
-    <h2>A Better Visualization Is Needed To Explain Real Notes</h2>
     <p>
-	Clearly, visualizing the pressure waves of these notes as pressure over
-	time does not provide great intuition about what’s happening in the
-	sound itself.
-    </p>
-
-
-    <p>
-	How to do this will be the topic of the next page.
+	So, visualizing, the sound of notes from real instruments as pressure over
+	time does <b>not</b> provide great intuition about what’s happening in the
+	sound itself. To do better, a different kind of visualization is needed,
+    which is precisely the topic of the next page.
     </p>
 
     <h2>Summary</h2>
