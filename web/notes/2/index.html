@@ -184,12 +184,17 @@
     </p>
 
 
+    <h2>Changing The Frequency Changes The Pitch</h2>
+
     <p>
-	Now, you can even see how it looks and sounds when adjusting the frequency here:
+	Now, see how the wave looks and sounds different by changing its frequency here:
     </p>
 
     <p>
-        <input  style="width: 100%;" type="range" min="1" max="10" value="5" class="slider" id="frequency-slider">
+        <div style="display: flex; justify-content: flex-start;">
+            <div><b>Frequency:</b>&nbsp;</div>
+            <div style="flex-grow: 4;"><input  style="width: 100%;" type="range" min="1" max="10" value="5" class="slider" id="frequency-slider"></div>
+        </div>
     </p>
 
     <p>
@@ -261,6 +266,8 @@
             });
         })()
     </script>
+
+    <h2>Real Instrument Sounds Are More Complicated</h2>
 
     <p>
 	For comparison, here’s what the sound wave of a piano looks like?
