@@ -73,6 +73,11 @@
                         y: {
                             min: -2,
                             max: 2,
+                        },
+                        x: {
+                            ticks: {
+                                callback: () => { return ""; },
+                            }
                         }
                     },
                     elements: {
@@ -91,9 +96,11 @@
 	You can listen to how this sounds here:
     </p>
 
-
-    <p>
-	TODO: PLAY SQUARE WAVE
+    <p style="text-align: center;">
+        <audio preload="auto" controls>
+            <source src="/api/note?source=square&freq=440&dur=3s">
+            Your browser does not support the audio element.
+        </audio>
     </p>
 
 
@@ -143,6 +150,11 @@
                         y: {
                             min: -2,
                             max: 2,
+                        },
+                        x: {
+                            ticks: {
+                                callback: () => { return ""; },
+                            }
                         }
                     },
                     elements: {
@@ -161,8 +173,11 @@
     </p>
 
 
-    <p>
-	TODO: PLAY SINE WAVE
+    <p style="text-align: center;">
+        <audio preload="auto"  controls>
+            <source src="/api/note?source=sine&freq=440&dur=3s">
+            Your browser does not support the audio element.
+        </audio>
     </p>
 
 
@@ -172,7 +187,7 @@
 
 
     <p>
-	Now, you can even see how it sounds when adjusting the frequency here:
+	Now, you can even see how it looks and sounds when adjusting the frequency here:
     </p>
 
     <p>
@@ -181,6 +196,14 @@
 
     <p>
         <canvas id="variable-sine-wave" width="400" height="400"></canvas>
+    </p>
+
+
+    <p style="text-align: center;">
+        <audio preload="auto" id="variable-sine-wave-audio" controls>
+            <source id="variable-sine-wave-source" src="/api/note?source=sine&freq=440&dur=3s">
+            Your browser does not support the audio element.
+        </audio>
     </p>
 
     <script>
@@ -204,6 +227,11 @@
                         y: {
                             min: -2,
                             max: 2,
+                        },
+                        x: {
+                            ticks: {
+                                callback: () => { return ""; },
+                            }
                         }
                     },
                     elements: {
@@ -213,7 +241,7 @@
                     },
                 }
             });
-            const update = function() {
+            const update = function(play) {
                 const f = document.querySelector("#frequency-slider").value;
                 let numPoints = 300;
                 let fewestPeriods = 1;
@@ -223,14 +251,18 @@
                 }
                 myChart.data.datasets[0].data = data;
                 myChart.update();
+                document.querySelector("#variable-sine-wave-source").src = `/api/note?source=sine&freq=${f * 440 / 5}&dur=3s`
+                document.querySelector("#variable-sine-wave-audio").load();
+                if (play) {
+                    document.querySelector("#variable-sine-wave-audio").play();
+                }
             }
-            update();
+            update(false);
             document.querySelector("#frequency-slider").addEventListener("change", function () {
-                update();
+                update(true);
             });
         })()
     </script>
-
 
     <p>
 	For comparison, here’s what the sound wave of a piano looks like?

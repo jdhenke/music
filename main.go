@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 	"text/template"
+
+	"github.com/jdhenke/music/webapi"
 )
 
 func main() {
@@ -15,7 +17,10 @@ func main() {
 	log.Println("Starting up...")
 	addr := ":" + os.Getenv("PORT")
 	log.Printf("Listening on %s", addr)
-	if err := http.ListenAndServe(addr, http.HandlerFunc(serve)); err != nil {
+	mux := http.NewServeMux()
+	mux.Handle("/api/note", webapi.NoteHandler())
+	mux.Handle("/", http.HandlerFunc(serve))
+	if err := http.ListenAndServe(addr, mux); err != nil {
 		log.Fatal(err)
 	}
 	log.Println("Shutdown complete.")
