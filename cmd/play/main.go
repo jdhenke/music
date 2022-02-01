@@ -2,14 +2,15 @@ package main
 
 import (
 	"flag"
-	"github.com/faiface/beep"
-	"github.com/faiface/beep/effects"
-	"github.com/faiface/beep/generators"
-	"github.com/faiface/beep/wav"
 	"log"
 	"math/rand"
 	"os"
 	"time"
+
+	"github.com/faiface/beep"
+	"github.com/faiface/beep/effects"
+	"github.com/faiface/beep/generators"
+	"github.com/faiface/beep/wav"
 )
 
 func main() {

@@ -14,7 +14,7 @@ import (
 func main() {
 	var (
 		file  string
-		start time.Duration
+		start time.Duration = -1
 		dur   time.Duration
 	)
 	flag.StringVar(&file, "file", "", "file")
@@ -24,7 +24,7 @@ func main() {
 	if file == "" {
 		log.Fatal("Must provide -file.")
 	}
-	if start == 0 {
+	if start == -1 {
 		log.Fatal("Must provide -start.")
 	}
 	if dur == 0 {

@@ -3,11 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/mjibson/go-dsp/fft"
 	"log"
 	"math/cmplx"
 	"os"
 	"strconv"
+
+	"github.com/mjibson/go-dsp/fft"
 )
 
 func main() {
